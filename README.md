@@ -39,3 +39,30 @@ http://<IP_de_la_máquina>:80
 5. Validar el funcionamiento
 •	Asegúrate de que el sitio web esté configurado correctamente en el contenedor, es decir, que el servidor (por ejemplo, Nginx, Apache) sirva tu aplicación en el puerto 80 o el que configuraste.
 
+
+# Usa una imagen base de Nginx
+FROM nginx:latest
+
+# Copia los archivos del sitio web al directorio raíz de Nginx
+COPY . /usr/share/nginx/html
+
+# Exponer el puerto 80
+EXPOSE 80
+
+
+# Sitio Web de Café
+
+Este proyecto contiene un sitio web sobre café.
+
+## Clonar el repositorio
+git clone https://github.com/tu_usuario/nombre_del_repositorio.git
+
+
+## Construir la imagen Docker
+docker build -t sitio1pagina .
+
+## Ejecutar el contenedor
+docker run -d -p 80:80 sitio1pagina
+
+## Acceder al sitio
+Ve a http://localhost:8080/sitio/index.html en tu navegador.
